@@ -17,9 +17,10 @@ do
     echo "Importing $repository"
     python ./import.py $user_name $user_email $repository
 
-    echo "Producing a big commits log"
-    echo "select committed_on, project_name, hash from contribs order by committed_on desc;" | sqlite3 db/db.db > all.txt    
 done
+
+echo "Producing a big commits log"
+echo "select committed_on, project_name, hash from contribs order by committed_on desc;" | sqlite3 db/db.db > all.txt    
 
 
 echo "Done"

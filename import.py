@@ -15,6 +15,7 @@ if __name__ == "__main__":
         for row in csv:
             committed_on = row[2] + row[3]
             commit_hash = row[0]
-            exec_sql("INSERT INTO contribs(project_name, hash, committed_on) VALUES ('%s', '%s', '%s');" % (project_name, commit_hash, committed_on))
+            committed_on_ticks = row[4]
+            exec_sql("INSERT INTO contribs(project_name, hash, committed_on, committed_on_ticks) VALUES ('%s', '%s', '%s', %s);" % (project_name, commit_hash, committed_on, committed_on_ticks))
     
     print("OK")
